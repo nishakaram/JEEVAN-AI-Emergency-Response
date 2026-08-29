@@ -1,6 +1,8 @@
 # JEEVAN — AI-Assisted Emergency Response & Responder Coordination System
 
-**Status: All 9 phases complete.** College summer-internship prototype (B.Tech CS).
+AI-assisted emergency response and responder coordination prototype built with Python, FastAPI, React, SQLite, and LLM-based emergency classification.
+
+> The project demonstrates REST APIs, geolocation, algorithmic responder matching, database relationships, automated testing, and AI-assisted emergency assessment.
 
 > ⚠️ **This is a prototype, not a real emergency system.** AI classifications
 > are not medical diagnoses. Responder data is demonstration data. Estimated
