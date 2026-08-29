@@ -11,6 +11,12 @@ AI-assisted emergency response and responder coordination prototype built with P
 
 ---
 
+## 🎥 Project Demo Video
+
+A short walkthrough demonstrating the complete JEEVAN emergency response workflow — from emergency reporting and AI-based assessment to responder matching and live tracking.
+
+👉 **[Watch the JEEVAN Project Demo](https://drive.google.com/file/d/1wO9gKxfh6027qkOr3qeqgqHcXaVbbBhH/view?usp=sharing)**
+
 ## Problem Statement
 
 When someone is alone during a medical or accident emergency — elderly,
@@ -123,7 +129,11 @@ python seed_data.py
 cd ../backend
 uvicorn app.main:app --reload
 ```
-API docs: http://localhost:8000/docs
+Local API server: http://localhost:8000
+
+Interactive API documentation: http://localhost:8000/docs
+
+These URLs are for local development. The project is currently provided as a runnable prototype and is not deployed to a public server.
 
 ### Frontend
 ```bash
@@ -131,7 +141,9 @@ cd frontend
 npm install
 npm run dev
 ```
-App: http://localhost:5173
+Local application: http://localhost:5173
+
+The frontend runs locally using Vite. A public deployment is not currently provided.
 
 ## Environment Variables
 
