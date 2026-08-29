@@ -4,7 +4,7 @@ AI-assisted emergency response and responder coordination prototype built with P
 
 > The project demonstrates REST APIs, geolocation, algorithmic responder matching, database relationships, automated testing, and AI-assisted emergency assessment.
 
-> ⚠️ **This is a prototype, not a real emergency system.** AI classifications
+> **This is a prototype, not a real emergency system.** AI classifications
 > are not medical diagnoses. Responder data is demonstration data. Estimated
 > arrival times are illustrative. Contact appropriate official emergency
 > services during a real emergency.
