@@ -11,7 +11,7 @@ AI-assisted emergency response and responder coordination prototype built with P
 
 ---
 
-## 1. Problem Statement
+## Problem Statement
 
 When someone is alone during a medical or accident emergency — elderly,
 injured, or otherwise unable to act quickly — every minute lost between
@@ -20,7 +20,7 @@ emergency-calling systems assume the caller can speak clearly on a
 phone call, describe their situation accurately, and knows who to call.
 That assumption often doesn't hold.
 
-## 2. Motivation
+## Motivation
 
 This project is inspired by a real situation in which elderly relatives
 living alone were involved in a serious road accident and were unable to
@@ -28,7 +28,7 @@ independently contact appropriate emergency assistance. JEEVAN explores
 how AI, location services, and responder coordination could reduce that
 communication/coordination delay.
 
-## 3. Proposed Solution
+## Proposed Solution
 
 A single "Request Emergency Help" action that:
 1. Captures the user's location (or falls back to a demo location)
@@ -39,7 +39,7 @@ A single "Request Emergency Help" action that:
 6. Tracks the incident through a live status timeline and map
 7. Gives a responder/admin dashboard to manage and resolve incidents
 
-## 4. Features
+## Features
 
 - One-tap emergency request with GPS capture (with demo-location fallback)
 - Voice input via the Web Speech API, with graceful text fallback
@@ -53,7 +53,7 @@ A single "Request Emergency Help" action that:
 - Repeatable one-click Demo Mode for presentations
 - 26 automated backend tests
 
-## 5. AI Components
+## AI Components
 
 `backend/app/services/ai_classifier.py` sends the user's raw emergency
 description to an LLM (Claude, via the Anthropic API) with a strict
@@ -66,7 +66,7 @@ dependent on network access or a paid API key to function or to demo.
 This is explicitly **AI-assisted classification, not a medical
 diagnosis**, and is labeled as such in the UI.
 
-## 6. System Architecture
+## System Architecture
 
 ```
 React + Vite (frontend)  <-- REST/JSON -->  FastAPI (backend)  <-->  SQLite
@@ -79,7 +79,7 @@ React + Vite (frontend)  <-- REST/JSON -->  FastAPI (backend)  <-->  SQLite
 See `docs/ARCHITECTURE.md` for the full diagram and the reasoning behind
 each technology choice.
 
-## 7. Technology Stack
+## Technology Stack
 
 | Layer | Technology |
 |---|---|
@@ -91,7 +91,7 @@ each technology choice.
 | Maps | Leaflet + OpenStreetMap (free, no API key) |
 | Testing | pytest, FastAPI TestClient |
 
-## 8. Database Schema
+## Database Schema
 
 Five tables: `users`, `emergency_contacts`, `responders`, `emergencies`,
 `emergency_events`. Full column list and relationships are in
@@ -101,7 +101,7 @@ Five tables: `users`, `emergency_contacts`, `responders`, `emergencies`,
 - An **emergency** belongs to at most one **user**, is assigned at most
   one **responder**, and has many **emergency_events** (its timeline)
 
-## 9. Installation
+## Installation
 
 **Prerequisites:** Python 3.10+, Node.js 18+
 
@@ -133,7 +133,7 @@ npm run dev
 ```
 App: http://localhost:5173
 
-## 10. Environment Variables
+## Environment Variables
 
 `backend/.env` (copy from `.env.example`):
 
@@ -143,21 +143,21 @@ App: http://localhost:5173
 | `DATABASE_URL` | No | Defaults to `sqlite:///../database/jeevan.db` |
 | `DEMO_MODE` | No | Informational flag, defaults to `true` |
 
-## 11. Running Backend
+## Running Backend
 
 ```bash
 cd backend
 uvicorn app.main:app --reload
 ```
 
-## 12. Running Frontend
+## Running Frontend
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-## 13. Demo Mode
+## Demo Mode
 
 On the Home screen, click **"▶ Run Demo Scenario"**. This instantly sets
 a demo location (Jaipur) and pre-fills the exact presentation scenario
@@ -165,7 +165,27 @@ text, skipping the GPS permission dialog so a live demo never stalls.
 Click "Send Emergency Request" to run the full pipeline. Click "Start a
 new request" to repeat it as many times as needed.
 
-## 14. Example Emergency Scenario
+## 📸 Screenshots
+
+### Emergency Result
+
+The system displays the emergency assessment, severity, assigned responder, and emergency contact notification status.
+
+![JEEVAN Emergency Result](screenshots/main_emergency_result.png)
+
+### AI Assessment & Responder Matching
+
+JEEVAN analyzes the emergency description, determines its severity and type, and recommends the most suitable responder based on the matching algorithm.
+
+![JEEVAN AI Assessment and Responder Matching](screenshots/AI_Assessment_&_Responder_Matching.png)
+
+### Live Emergency Tracking
+
+The tracking screen provides the emergency location, assigned responder, current status, and response timeline on an interactive map.
+
+![JEEVAN Live Emergency Tracking](screenshots/live_tracking_screen.png)
+
+## Example Emergency Scenario
 
 **Input** (typed or spoken): *"An elderly person has been hit by a
 vehicle. He is unconscious and bleeding."*
@@ -181,7 +201,7 @@ vehicle. He is unconscious and bleeding."*
 - Dashboard: incident appears, can be advanced through
   EnRoute → Resolved
 
-## 15. Limitations
+## Limitations
 
 - Responder data is entirely simulated/demo data, not real services
 - No real SMS/WhatsApp/call integration — notification is simulated
@@ -190,7 +210,7 @@ vehicle. He is unconscious and bleeding."*
 - AI classification can be wrong; it is not a medical diagnosis
 - Haversine distance is straight-line, not road distance
 
-## 16. Future Enhancements
+## Future Enhancements
 
 - Real SMS/WhatsApp notification integration (e.g. Twilio)
 - Real routing/ETA via a mapping API
@@ -199,7 +219,7 @@ vehicle. He is unconscious and bleeding."*
 - Multi-language voice input and AI classification
 - Push notifications instead of polling
 
-## 17. Ethical & Safety Considerations
+## Ethical & Safety Considerations
 
 - This system does not replace, and must never be presented as
   replacing, official emergency services
